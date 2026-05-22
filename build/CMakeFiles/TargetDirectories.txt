@@ -1,0 +1,7 @@
+/Users/dominik/Documents/Universität/8.Semester/Bachelorarbeit/Bachelorarbeit_final_project/build/CMakeFiles/imgui.dir
+/Users/dominik/Documents/Universität/8.Semester/Bachelorarbeit/Bachelorarbeit_final_project/build/CMakeFiles/GameProject.dir
+/Users/dominik/Documents/Universität/8.Semester/Bachelorarbeit/Bachelorarbeit_final_project/build/CMakeFiles/install_python_requirements.dir
+/Users/dominik/Documents/Universität/8.Semester/Bachelorarbeit/Bachelorarbeit_final_project/build/CMakeFiles/edit_cache.dir
+/Users/dominik/Documents/Universität/8.Semester/Bachelorarbeit/Bachelorarbeit_final_project/build/CMakeFiles/rebuild_cache.dir
+/Users/dominik/Documents/Universität/8.Semester/Bachelorarbeit/Bachelorarbeit_final_project/build/_deps/pybind11-build/CMakeFiles/edit_cache.dir
+/Users/dominik/Documents/Universität/8.Semester/Bachelorarbeit/Bachelorarbeit_final_project/build/_deps/pybind11-build/CMakeFiles/rebuild_cache.dir
