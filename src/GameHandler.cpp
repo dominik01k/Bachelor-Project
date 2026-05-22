@@ -704,14 +704,17 @@ std::vector<Vec2> GameHandler::insertEnemyPositions(int teamID){
         if (teamID == id) continue;
 
         for (PlayerEntry& currPlayer : currTeam->getPlayers()) {
+            currPlayer.player->setVisible(true);
+
             if (!checkObjectVisible(currPlayer.player)){
                 LOG_TRACE("Game", "Enemy Player " + std::to_string(currPlayer.player->getPlayerID()) + " is hidden in bush");
+                currPlayer.player->setVisible(false);
                 continue;
             }
             
             sf::Vector2f playerPos = currPlayer.player->getPosition();
-
             enemyPositions.push_back(Vec2{static_cast<int>(playerPos.x), static_cast<int>(playerPos.y)});
+
         }
     }
     return enemyPositions;
@@ -724,9 +727,12 @@ std::vector<Vec2> GameHandler::insertEnemyBulletPositions(int teamID) {
         if (teamID == id) continue;
 
         for (PlayerEntry& currPlayer : currTeam->getPlayers()) {
-
             for (auto* bullet : currPlayer.player->getBullets()) {
+                bullet->setVisible(true);
+
                 if (!checkObjectVisible(bullet)) {
+                    LOG_TRACE("Game", "Enemy Bullet from Player " + std::to_string(currPlayer.player->getPlayerID()) + " is hidden in bush");
+                    bullet->setVisible(false);
                     continue;
                 }
 
@@ -734,6 +740,7 @@ std::vector<Vec2> GameHandler::insertEnemyBulletPositions(int teamID) {
                 enemyBulletPositions.push_back(
                     Vec2{static_cast<int>(bulletPos.x), static_cast<int>(bulletPos.y)}
                 );
+
             }
         }
     }

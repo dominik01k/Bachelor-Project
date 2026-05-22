@@ -195,31 +195,19 @@ void GameMap::updateMap(float deltaTime){
     drawStaticMap(window);
 
     for (Player* currPlayer : players) {
-        //currPlayer->update(deltaTime);
-        currPlayer->draw(window);
-        //std::vector<Bullet*>& bullets = currPlayer->getBullets();
-    
-        // for (auto it = bullets.begin(); it != bullets.end(); ) {
-        //     if ((*it)->shouldBeDestroyed()) {
-        //         LOG_INFO("Game", "Destroying bullet at end of update");
-        //         delete *it;
-        //         it = bullets.erase(it);
-        //     } else {
-        //         (*it)->update(deltaTime);
-        //         (*it)->draw(window);
-        //         ++it;
-        //     }
-        // }
-        for (Bullet* b : currPlayer->getBullets()) {
-            b->draw(window);
+        if(currPlayer->isVisible()){
+            currPlayer->draw(window);
+
+            for (Bullet* b : currPlayer->getBullets()) {
+                if(b->isVisible()){
+                    b->draw(window);
+                }
+            }
         }
     }
 
 
     for(Zone* zone : zones){
-        // for(Player* currPlayer : players){
-        //     zone->update(deltaTime, currPlayer->getPosition(), currPlayer->getUniqueTeamID());
-        // }
         zone->draw(window);
     }
 
@@ -259,7 +247,7 @@ void GameMap::drawTeamStatusPanels(sf::RenderWindow& window) {
         float centerY = viewCenter.y;
 
         float posX = centerX - panelWidth / 2.f;
-        float posY = centerY - totalHeight / 2.f;
+        float posY = centerY - totalHeight / 2.f + 1.f;
 
         sf::RectangleShape panel(sf::Vector2f(panelWidth, totalHeight));
         panel.setPosition(sf::Vector2f(posX, posY));

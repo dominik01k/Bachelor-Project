@@ -25,13 +25,13 @@ void UserControlledPlayerAI::update(float deltaTime, const GameState& state, Pla
         Key k = state.userKey.value();
         switch (k) {
             case Key::A:
-                newCommand = MoveCommand{MoveType::RotateLeft, 10.f};
+                newCommand = MoveCommand{MoveType::RotateLeft, 20.f};
                 break;
             case Key::D:
-                newCommand = MoveCommand{MoveType::RotateRight, 10.f};
+                newCommand = MoveCommand{MoveType::RotateRight, 20.f};
                 break;
             case Key::W:
-                newCommand = MoveCommand{MoveType::MoveForward, 10.f};
+                newCommand = MoveCommand{MoveType::MoveForward, 30.f};
                 break;
             case Key::Space:
                 newCommand = MoveCommand{MoveType::Shoot, 0.f};
